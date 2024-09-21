@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Better JSON Viewer",
+  "version": "0.1",
+  "description": "Automatically format JSON responses in your browser",
+  "icons": {
+    "32": "./assets/icon-64.png",
+    "64": "./assets/icon-128.png",
+    "128": "./assets/icon-256.png"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["injected.js", "styles.css"],
+    "matches": ["<all_urls>"]
+  }]
+}

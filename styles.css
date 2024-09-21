@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #202124;
+  --key-color: #4b7b95;
+  --string-color: #ea8d68;
+  --number-color: #9ce277;
+  --boolean-color: #957cf7;
+  --null-color: #a597ae;
+}
+
+.dark {
+  --bg-color: #202124;
+  --text-color: #ffffff;
+  --key-color: #84d4ff;
+  --string-color: #ea8d68;
+  --number-color: #9ce277;
+  --boolean-color: #957cf7;
+  --null-color: #877d8f;
+}
+
+#json-tree-viewer {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+#json-tree-viewer .json-array,
+#json-tree-viewer .json-object {
+  display: inline;
+}
+
+#json-tree-viewer .array-content,
+#json-tree-viewer .object-content {
+  display: block;
+  padding-left: 1.5rem;
+}
+
+#json-tree-viewer .array-item,
+#json-tree-viewer .object-property {
+  display: block;
+}
+
+#json-tree-viewer .json-key {
+  color: var(--key-color);
+}
+
+#json-tree-viewer .json-string {
+  color: var(--string-color);
+}
+
+#json-tree-viewer .json-number {
+  color: var(--number-color);
+}
+
+#json-tree-viewer .json-boolean {
+  color: var(--boolean-color);
+}
+
+#json-tree-viewer .json-null {
+  color: var(--null-color);
+}
+
+#json-tree-viewer .collapsible {
+  cursor: pointer;
+  user-select: none;
+}
+
+#json-tree-viewer .collapsible::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.25rem;
+  transition: transform 0.3s;
+  transform: rotate(90deg);
+  opacity: 0.6;
+}
+
+#json-tree-viewer .collapsible.expanded::before {
+  transform: rotate(0deg);
+}
+
+#json-tree-viewer .hidden {
+  display: none;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  padding: 0.25rem 0.5rem;
+  color: var(--bg-color);
+  background-color: var(--key-color);
+  border: 1px solid var(--key-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+}
+
+#theme-toggle:focus-visible {
+  outline: 2px solid var(--key-color);
+  outline-offset: 2px;
+}
