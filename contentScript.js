@@ -32,7 +32,7 @@ async function init() {
     await injectScript('injected.js');
 
     // Set initial theme
-    const currentTheme = localStorage.getItem('jsonViewerTheme') || 'light';
+    const currentTheme = localStorage.getItem('jsonViewerTheme') || window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     document.body.classList.add(currentTheme);
 
     window.addEventListener('message', (event) => {

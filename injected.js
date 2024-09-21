@@ -1,4 +1,4 @@
-(() => {
+const main = () => {
   let jsonData;
   
   try {
@@ -14,4 +14,6 @@
   }
 
   window.postMessage({ type: 'FROM_PAGE', jsonData: jsonData }, '*');
-})();
+}
+
+main();
